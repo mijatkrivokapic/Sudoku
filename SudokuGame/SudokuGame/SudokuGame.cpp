@@ -2,11 +2,17 @@
 //
 
 #include <iostream>
+#include "Board.hpp"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Board b("in.txt");
+    std::cout << b;
+    bool solved=b.solve();
+    std::cout << solved << std::endl;
+    std::cout << b;
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
