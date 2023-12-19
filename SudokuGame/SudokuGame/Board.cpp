@@ -99,3 +99,47 @@ bool Board::solve() {
 	}
 	return false;
 }
+
+void Board::eraseBoard() {
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++) {
+			data[i][j] = 0;
+		}
+	}
+}
+
+void Board::generateBoard() {
+	eraseBoard();
+	fillSquare(0, 0);
+	fillSquare(3, 3);
+	fillSquare(6, 6);
+	solve();
+	////izmedju 54 i 64 (da bi sudoku bio resiv mora da ima 17, a maskimum je prosecno 6 po po malom kvadratu
+	int toRemove = rand() % 10 + 54;
+	std::cout << toRemove << std::endl;
+	removeValues(toRemove);
+
+}
+
+void Board::fillSquare(int row, int col) {
+	for (int i = row; i < row + 3; i++) {
+		for (int j = col; j < col + 3; j++) {
+			int num;
+			do {
+				num = rand() % 9 + 1;
+			} while (isInSquare(row, col, num));
+			data[i][j] = num;
+		}
+	}
+}
+
+void Board::removeValues(int count) {
+	int row, col;
+	for (int i = 0; i < count; i++) {
+		do {
+			row = rand() % 9;
+			col = rand() % 9;
+		} while (data[row][col] == 0);
+		data[row][col] = 0;
+	}
+}

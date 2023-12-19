@@ -1,6 +1,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include<time.h>
 
 class Board {
 private:
@@ -14,4 +15,8 @@ public:
 	Board(std::string filename);
 	bool solve();
 	friend std::ostream& operator<<(std::ostream& os, const Board& b);
+	void generateBoard();
+	void eraseBoard();
+	void fillSquare(int row, int col);
+	void removeValues(int count);
 };

@@ -6,11 +6,45 @@
 
 int main()
 {
+    srand(time(NULL));
     Board b("in.txt");
-    std::cout << b;
+    b.generateBoard();
+    std::cout << b << std::endl;
+    b.solve();
+    std::cout << b << std::endl;
+    b.generateBoard();
+    std::cout << b << std::endl;
+    b.solve();
+    std::cout << b << std::endl;
+    b.generateBoard();
+    std::cout << b << std::endl;
+    b.solve();
+    std::cout << b << std::endl;
+    b.generateBoard();
+    std::cout << b << std::endl;
+    b.solve();
+    std::cout << b << std::endl;
+    b.generateBoard();
+    std::cout << b << std::endl;
+    b.solve();
+    std::cout << b << std::endl;
+    b.generateBoard();
+    std::cout << b << std::endl;
+    b.solve();
+    std::cout << b << std::endl;
+    b.generateBoard();
+    std::cout << b << std::endl;
+    b.solve();
+    std::cout << b << std::endl;
+    b.generateBoard();
+    std::cout << b << std::endl;
+    b.solve();
+    std::cout << b << std::endl;
+
+    /*std::cout << b;
     bool solved=b.solve();
-    std::cout << solved << std::endl;
-    std::cout << b;
+    //std::cout << solved << std::endl;
+    //std::cout << b;*/
 }
 
 
