@@ -9,5 +9,6 @@ private:
 	int correctCount;
 	int incorrectCount;
 	int gameCount;
-	Board board;
+	Board puzzle;
+	Board solution;
 };

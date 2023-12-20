@@ -2,7 +2,9 @@
 #include<iostream>
 
 
-Board::Board(std::string filename) {
+Board::Board() :data() { }
+
+void Board::loadFromFile(std::string filename) {
 	std::ifstream in(filename);
 	int num = 0;
 	for (int i = 0; i < 9; i++) {

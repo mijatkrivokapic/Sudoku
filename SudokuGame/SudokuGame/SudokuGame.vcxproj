@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Board.hpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="SudokuGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileManager.hpp" />
     <ClInclude Include="Sudoku9.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
