@@ -2,59 +2,69 @@
 //
 
 #include <iostream>
-#include "Board.hpp"
+#include "Sudoku9.hpp"
 
-int main()
+int main(int argc, char* argv[])
 {
-    srand(time(NULL));
-    Board b=Board();
-    /*b.generateBoard();
-    std::cout << b << std::endl;
-    b.solve();
-    std::cout << b << std::endl;
-    b.generateBoard();
-    std::cout << b << std::endl;
-    b.solve();
-    std::cout << b << std::endl;
-    b.generateBoard();
-    std::cout << b << std::endl;
-    b.solve();
-    std::cout << b << std::endl;
-    b.generateBoard();
-    std::cout << b << std::endl;
-    b.solve();
-    std::cout << b << std::endl;
-    b.generateBoard();
-    std::cout << b << std::endl;
-    b.solve();
-    std::cout << b << std::endl;
-    b.generateBoard();
-    std::cout << b << std::endl;
-    b.solve();
-    std::cout << b << std::endl;
-    b.generateBoard();
-    std::cout << b << std::endl;
-    b.solve();
-    std::cout << b << std::endl;
-    b.generateBoard();
-    std::cout << b << std::endl;
-    b.solve();
-    std::cout << b << std::endl;*/
+    //proveri da li ima 2 argumenta
+    Sudoku9 game(argv[1], argv[2]);
+    char continueGame;
+    char option;
+    do {
+        std::cout << "Unesite redni broj ispred opcije koju zelite:" << std::endl;
+        std::cout << "\t1)Ucitavanje postavke zagonetke iz fajla " << game.puzzleFileName << std::endl;
+        std::cout << "\t2) Generisanje nove postavke zagonetke" << std::endl;
+        bool succes = false;
+        while (!succes) {
+            std::cin >> option;
+            succes = true;
+            switch (option)
+            {
+            case'1':
+                game.loadPuzzle();
+                break;
+            case'2':
+                std::cout << "option";
+                game.generatePuzzle();
+                break;
+            default:
+                std::cout << "Pogresan unos, pokusajte ponovo:" << std::endl;
+                succes = false;
+            }
+        }
 
-    /*std::cout << b;
-    bool solved=b.solve();
-    //std::cout << solved << std::endl;
-    //std::cout << b;*/
+        std::cout << game.puzzle << std::endl;
+
+        std::cout << "Unesite redni broj ispred opcije koju zelite:" << std::endl;
+        std::cout << "\t1) Ucitavanje resenja iz fajla " << game.solutionFileName << std::endl;
+        std::cout << "\t2) Prikazivanje programski generisanog resenja" << std::endl;
+        succes = false;
+        while (!succes) {
+            std::cin >> option;
+            succes = true;
+            switch (option)
+            {
+            case'1':
+                game.loadSolution();
+                break;
+            case'2':
+                std::cout << "option";
+                game.solvePuzzle();
+                break;
+            default:
+                std::cout << "Pogresan unos, pokusajte ponovo:" << std::endl;
+                succes = false;
+            }
+        }
+        std::cout << game.solution << std::endl;
+        std::cout << "Statistika igre:" << std::endl;
+        std::cout << "\tBroj pogresno postavljenih brojeva: " << game.incorrectCount << std::endl;
+        std::cout << "\tBroj ravilno postavljenih brojeva: " << game.correctCount << std::endl;
+        game.solved ? std::cout << "\tZagonetka je resena" << std::endl : std::cout << "\tZagonetka nije resena" << std::endl;
+        std::cout << game.puzzle;
+        std::cout << game.solution;
+        std::cin >> continueGame;
+    } while (continueGame != 'n' || continueGame != 'N');
 }
 
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    

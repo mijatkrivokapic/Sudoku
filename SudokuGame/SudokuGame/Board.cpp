@@ -4,16 +4,6 @@
 
 Board::Board() :data() { }
 
-void Board::loadFromFile(std::string filename) {
-	std::ifstream in(filename);
-	int num = 0;
-	for (int i = 0; i < 9; i++) {
-		for (int j = 0; j < 9; j++) {
-			in >> data[i][j];
-		}
-	}
-}
-
 std::ostream& operator<<(std::ostream& os, const Board& b) {
 	for (int i = 0; i < 9; i++) {
 		if (i == 0 || i == 3 || i == 6) {

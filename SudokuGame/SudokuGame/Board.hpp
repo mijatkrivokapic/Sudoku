@@ -4,8 +4,6 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <time.h>
-
 
 class Board {
 private:
