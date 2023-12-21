@@ -1,0 +1,20 @@
+#include "FileManager.hpp"
+
+void FileManager::readBoard(Board& board, std::string filename) {
+	std::ifstream in(filename);
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++) {
+			in >> board.data[i][j];
+		}
+	}
+}
+
+void FileManager::writeBoard(const Board& board, std::string filename) {
+	std::ofstream out(filename);
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++) {
+			out << board.data[i][j];
+			j == 8 ? out << '\n' : out << ' ';
+		}
+	}
+}

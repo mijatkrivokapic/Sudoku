@@ -130,6 +130,7 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Board.hpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="Sudoku9.cpp" />
     <ClCompile Include="SudokuGame.cpp" />
   </ItemGroup>
   <ItemGroup>
