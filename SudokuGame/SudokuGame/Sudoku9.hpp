@@ -30,6 +30,7 @@ public:
 	std::string puzzleFileName;
 	std::string solutionFileName;
 	bool solved;
+	bool correctSolution;
 	int correctCount;
 	int incorrectCount;
 	int gameCount;

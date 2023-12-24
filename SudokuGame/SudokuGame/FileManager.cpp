@@ -7,6 +7,7 @@ void FileManager::readBoard(Board& board, std::string filename) {
 			in >> board.data[i][j];
 		}
 	}
+	in.close();
 }
 
 void FileManager::writeBoard(const Board& board, std::string filename) {
@@ -17,4 +18,5 @@ void FileManager::writeBoard(const Board& board, std::string filename) {
 			j == 8 ? out << '\n' : out << ' ';
 		}
 	}
+	out.close();
 }

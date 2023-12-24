@@ -1,6 +1,6 @@
 #include "Sudoku9.hpp"
 
-Sudoku9::Sudoku9(std::string puzzleFileName, std::string solutionFileName) :puzzle(Board()),solution(Board()), puzzleFileName(puzzleFileName), solutionFileName(solutionFileName), solved(false), correctCount(0), incorrectCount(0), gameCount(0) {
+Sudoku9::Sudoku9(std::string puzzleFN, std::string solutionFN) :puzzle(Board()),solution(Board()), puzzleFileName(puzzleFN), solutionFileName(solutionFN), solved(false),correctSolution(true), correctCount(0), incorrectCount(0), gameCount(0) {
 	srand(time(NULL));
 }
 	
@@ -50,7 +50,7 @@ void Sudoku9::fillSquare(int row, int col) {
 			int num;
 			do {
 				num = rand() % 9 + 1;
-			} while (puzzle.isInSquare(row, col, num));
+			} while (puzzle.isInSquare(i, j, num));
 			puzzle.data[i][j] = num;
 		}
 	}
@@ -68,15 +68,25 @@ void Sudoku9::removeValues(int count) {
 }
 
 void Sudoku9::generateStats() {
+	//proveri da li se resava postavka
+	//proveri da li je validan
+
+	gameCount++;
 	correctCount = 0;
 	incorrectCount = 0;
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
-			solution.isValid(i, j, solution.data[i][j]) ? correctCount++ : incorrectCount++;
+			if (puzzle.data[i][j] == 0) {
+				solution.isValid(i, j, solution.data[i][j]) ? correctCount++ : incorrectCount++;
+			}
+			else {
+				correctSolution = puzzle.data[i][j] == solution.data[i][j];
+				return;
+			}
+			
 		}
 	}
 	solved = incorrectCount == 0 ? true : false;
-	gameCount++;
 }
 
 void Sudoku9::loadPuzzle() {
@@ -89,12 +99,15 @@ void Sudoku9::loadSolution() {
 }
 
 void Sudoku9::solvePuzzle() {
-	std::copy(&(puzzle.data[0][0]), &(puzzle.data[9][9]), &(solution.data[0][0]));
+	std::copy(&(puzzle.data[0][0]), &(puzzle.data[8][8]), &(solution.data[0][0]));
 
 	if (!solve(solution)) {
+		
 		//nije resiv treba neki eror
 	}
 	generateStats();
 	FileManager::writeBoard(solution, solutionFileName);
 }
+
+
 

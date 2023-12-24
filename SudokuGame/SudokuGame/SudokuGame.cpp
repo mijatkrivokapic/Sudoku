@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include<conio.h>
 #include "Sudoku9.hpp"
 
 int main(int argc, char* argv[])
@@ -24,7 +25,6 @@ int main(int argc, char* argv[])
                 game.loadPuzzle();
                 break;
             case'2':
-                std::cout << "option";
                 game.generatePuzzle();
                 break;
             default:
@@ -48,7 +48,6 @@ int main(int argc, char* argv[])
                 game.loadSolution();
                 break;
             case'2':
-                std::cout << "option";
                 game.solvePuzzle();
                 break;
             default:
@@ -57,13 +56,19 @@ int main(int argc, char* argv[])
             }
         }
         std::cout << game.solution << std::endl;
-        std::cout << "Statistika igre:" << std::endl;
-        std::cout << "\tBroj pogresno postavljenih brojeva: " << game.incorrectCount << std::endl;
-        std::cout << "\tBroj ravilno postavljenih brojeva: " << game.correctCount << std::endl;
-        game.solved ? std::cout << "\tZagonetka je resena" << std::endl : std::cout << "\tZagonetka nije resena" << std::endl;
-        std::cout << game.puzzle;
-        std::cout << game.solution;
+        if (game.correctSolution) {
+            std::cout << "Statistika igre:" << std::endl;
+            std::cout << "\tBroj pogresno postavljenih brojeva: " << game.incorrectCount << std::endl;
+            std::cout << "\tBroj ravilno postavljenih brojeva: " << game.correctCount << std::endl;
+            game.solved ? std::cout << "\tZagonetka je resena" << std::endl : std::cout << "\tZagonetka nije resena" << std::endl;
+        }
+        else {
+            std::cout << "Uneto resenje nije resenje zadate postavke." << std::endl;
+        }
+        std::cout << "Da li zelite da nastavite igru? (d/n)" << std::endl;
+       // std::clrscr();
         std::cin >> continueGame;
+        system("cls");
     } while (continueGame != 'n' || continueGame != 'N');
 }
 
