@@ -129,13 +129,19 @@
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Board.hpp" />
+    <ClCompile Include="BoardTest.cpp" />
+    <ClCompile Include="BoardTest.hpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="FileManagerTrest.cpp" />
     <ClCompile Include="Sudoku9.cpp" />
+    <ClCompile Include="Sudoku9Test.cpp" />
     <ClCompile Include="SudokuGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.hpp" />
+    <ClInclude Include="FileManagerTest.hpp" />
     <ClInclude Include="Sudoku9.hpp" />
+    <ClInclude Include="Sudoku9Test.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

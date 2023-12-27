@@ -30,12 +30,30 @@
     <ClCompile Include="Sudoku9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BoardTest.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sudoku9Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManagerTrest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sudoku9.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FileManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sudoku9Test.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManagerTest.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

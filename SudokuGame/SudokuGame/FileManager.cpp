@@ -1,7 +1,17 @@
+/**
+ * @file FileManager.cpp
+ * @brief Implementation of FileManager class
+ * @author Mijat Krivokapic
+ * @date 27.12.2023.
+ */
+
 #include "FileManager.hpp"
 
 void FileManager::readBoard(Board& board, std::string filename) {
 	std::ifstream in(filename);
+	if (!in) {
+		throw(std::runtime_error("File not found!"));
+	}
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
 			in >> board.data[i][j];
